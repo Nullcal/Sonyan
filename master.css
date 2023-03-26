@@ -1,0 +1,620 @@
+:root {
+    --ani-delay: .2s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+
+#background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    background-image: radial-gradient(#ccc .08vw, transparent 0);
+    background-size: 3vw 3vw;
+    background-position: -1.5vw -1.5vw;
+}
+
+
+@keyframes search-bar-ani-1 {
+    from { width: 0% }
+    to { width: 75% }
+}
+@keyframes search-bar-ani-2 {
+    from { width: 75% }
+    to { width: 70% }
+}
+@keyframes search-bar-ani-3 {
+    from { width: 70% }
+    to { width: 75% }
+}
+@keyframes search-bar-ani-4 {
+    from { width: 75% }
+    to { width: 0% }
+}
+
+#search-wrapper {
+    display: flex;
+    position: absolute;
+    transform: translateY(8.3vw);
+    width: 70%;
+    height: 6vw;
+    background: #fff;
+    box-sizing: border-box;
+    border: #eee solid .2vw;
+    border-radius: 3vw;
+    overflow: hidden;
+    z-index: -1;
+    animation: search-bar-ani-1, search-bar-ani-2;
+    animation-duration: .5s, .3s;
+    animation-delay: .05s, .55s;
+    animation-timing-function: cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+}
+.searching-2 #search-wrapper {
+    animation: search-bar-ani-3, search-bar-ani-4;
+    animation-duration: .3s, .5s;
+    animation-delay: .05s, .35s;
+    animation-timing-function: cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+}
+
+@keyframes search-bar-ani-0 {
+    0% {
+        transform: translate(0vw, 8.3vw);
+    }
+    20% {
+        transform: translate(.1vw, 8.5vw);
+    }
+    40% {
+        transform: translate(-.3vw, 8.2vw);
+    }
+    60% {
+        transform: translate(0vw, 8.6vw);
+    }
+    80% {
+        transform: translate(.2vw, 7.9vw);
+    }
+    100% {
+        transform: translate(0vw, 8.3vw);
+    }
+}
+
+.canceled #search-wrapper {
+    animation: search-bar-ani-0;
+    animation-duration: .2s;
+}
+.prevent-ani #search-wrapper {
+    animation: none;
+}
+
+
+#search-wrapper > * {
+    border: none;
+    outline: none;
+    font-size: 2vw;
+    color: #555;
+}
+
+#search-box {
+    padding-left: 4vw;
+    flex-grow: 2;
+}
+
+#search-button {
+    fill: #999;
+    width: 9vw;
+    cursor: pointer;
+    background: none;
+}
+#search-button svg {
+    width: 100%;
+    transform: scale(1.2) translateY(.1vw);
+}
+
+
+
+/*------------------------------------------------------
+                                       
+    ####  ###  #   # #   #  ###  #   #      ### #   #
+   #     #   # ##  #  # #  #   # ##  #       #  ##  #
+    ###  #   # # # #   #   ##### # # #       #  # # #
+       # #   # #  ##   #   #   # #  ##       #  #  ##
+   ####   ###  #   #   #   #   # #   #      ### #   #
+                                       
+------------------------------------------------------*/
+
+
+#sonyan {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(2vw 2vw 0px rgba(0, 0, 0, .05));
+    transform: translateY(-5%);
+}
+
+#sonyan svg {
+    width: 40%;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+#sonyan path,
+#sonyan ellipse,
+#sonyan circle {
+    transform: translate(240px, 240px);
+}
+
+
+.cls-1 {
+    fill: #fff;
+}
+
+.cls-2 {
+    fill: #ffe266;
+}
+
+.cls-3 {
+    fill: #ffa71a;
+}
+
+.cls-4 {
+    fill: #33211f;
+}
+
+.cls-5 {
+    fill: #333;
+}
+
+.cls-6 {
+    fill: #bfbfbf;
+}
+
+.cls-7 {
+    fill: #0f224c;
+}
+
+.cls-8 {
+    stroke: #fff;
+    stroke-width: 8px;
+}
+
+
+
+@keyframes mask-ani-1 {
+    from { transform: translateY(-690px) }
+    to { transform: translateY(70px) }
+}
+@keyframes mask-ani-2 {
+    from { transform: translateY(70px) }
+    to { transform: translateY(40px) }
+}
+@keyframes mask-ani-3 {
+    from { transform: translateY(40px) }
+    to { transform: translateY(50px) }
+}
+
+#bottom-overlay {
+    animation: mask-ani-1, mask-ani-2, mask-ani-3;
+    animation-duration: .3s, .2s, .2s;
+    animation-delay: calc(var(--ani-delay) + 0s), calc(var(--ani-delay) + .3s), calc(var(--ani-delay) + .5s);
+    animation-timing-function: cubic-bezier(.1,.1,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+    transform: translateY(-690px);
+}
+
+
+@keyframes body-ani-1 {
+    from { transform: translateY(740px) }
+    to { transform: translateY(-20px) }
+}
+@keyframes body-ani-2 {
+    from { transform: translateY(-20px) }
+    to { transform: translateY(10px) }
+}
+@keyframes body-ani-3 {
+    from { transform: translateY(10px) }
+    to { transform: translateY(0px) }
+}
+
+#body, #pseudo-body {
+    animation: body-ani-1, body-ani-2, body-ani-3;
+    animation-duration: .3s, .2s, .2s;
+    animation-delay: calc(var(--ani-delay) + 0s), calc(var(--ani-delay) + .3s), calc(var(--ani-delay) + .5s);
+    animation-timing-function: cubic-bezier(.1,.1,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+    transform: translateY(740px);
+}
+
+
+@keyframes face-ani-1 {
+    from { transform: translateY(40px) }
+    to { transform: translateY(-20px) }
+}
+@keyframes face-ani-2 {
+    from { transform: translateY(-20px) }
+    to { transform: translateY(5px) }
+}
+@keyframes face-ani-3 {
+    from { transform: translateY(5px) }
+    to { transform: translateY(0px) }
+}
+
+#face {
+    animation: face-ani-1, face-ani-2, face-ani-3;
+    animation-duration: .3s, .2s, .2s;
+    animation-delay: calc(var(--ani-delay) + 0s), calc(var(--ani-delay) + .3s), calc(var(--ani-delay) + .5s);
+    animation-timing-function: cubic-bezier(.1,.1,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+    transform: translateY(40px);
+}
+
+
+@keyframes ears-ani-1 {
+    from { transform: translateY(0px) }
+    to { transform: translateY(10px) }
+}
+@keyframes ears-ani-2 {
+    from { transform: translateY(10px) }
+    to { transform: translateY(-5px) }
+}
+@keyframes ears-ani-3 {
+    from { transform: translateY(-5px) }
+    to { transform: translateY(1px) }
+}
+@keyframes ears-ani-4 {
+    from { transform: translateY(1px) }
+    to { transform: translateY(0px) }
+}
+
+#ears {
+    animation: ears-ani-1, ears-ani-2, ears-ani-3, ears-ani-4;
+    animation-duration: .3s, .2s, .2s, .6s;
+    animation-delay: calc(var(--ani-delay) + 0s), calc(var(--ani-delay) + .3s), calc(var(--ani-delay) + .5s), calc(var(--ani-delay) + .7s);
+    animation-timing-function: cubic-bezier(.1,.1,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes right-ear-ani-1 {
+    from { transform: rotate(10deg) }
+    to { transform: rotate(20deg) }
+}
+@keyframes right-ear-ani-2 {
+    from { transform: rotate(20deg) }
+    to { transform: rotate(-5deg) }
+}
+@keyframes right-ear-ani-3 {
+    from { transform: rotate(-5deg) }
+    to { transform: rotate(1deg) }
+}
+@keyframes right-ear-ani-4 {
+    from { transform: rotate(1deg) }
+    to { transform: rotate(0deg) }
+}
+
+#right-ear {
+    transform-origin: 65% 50%;
+    animation: right-ear-ani-1, right-ear-ani-2, right-ear-ani-3, right-ear-ani-4;
+    animation-duration: .3s, .2s, .2s, .6s;
+    animation-delay: calc(var(--ani-delay) + 0s), calc(var(--ani-delay) + .3s), calc(var(--ani-delay) + .5s), calc(var(--ani-delay) + .7s);
+    animation-timing-function: cubic-bezier(.1,.1,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+    transform: rotate(10deg);
+}
+
+
+@keyframes left-ear-ani-1 {
+    from { transform: rotate(-10deg) }
+    to { transform: rotate(-20deg) }
+}
+@keyframes left-ear-ani-2 {
+    from { transform: rotate(-20deg) }
+    to { transform: rotate(5deg) }
+}
+@keyframes left-ear-ani-3 {
+    from { transform: rotate(5deg) }
+    to { transform: rotate(-1deg) }
+}
+@keyframes left-ear-ani-4 {
+    from { transform: rotate(-1deg) }
+    to { transform: rotate(0deg) }
+}
+
+#left-ear {
+    transform-origin: 35% 50%;
+    animation: left-ear-ani-1, left-ear-ani-2, left-ear-ani-3, left-ear-ani-4;
+    animation-duration: .3s, .2s, .2s, .6s;
+    animation-delay: calc(var(--ani-delay) + 0s), calc(var(--ani-delay) + .3s), calc(var(--ani-delay) + .5s), calc(var(--ani-delay) + .7s);
+    animation-timing-function: cubic-bezier(.1,.1,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+    transform: rotate(-10deg);
+}
+
+
+@keyframes hat-ani-1 {
+    from { transform: translateY(0px) }
+    to { transform: translateY(-40px) }
+}
+@keyframes hat-ani-2 {
+    from { transform: translateY(-40px) }
+    to { transform: translateY(0px) }
+}
+
+#hat {
+    animation: hat-ani-1, hat-ani-2;
+    animation-duration: .3s, .2s;
+    animation-delay: calc(var(--ani-delay) + .1s), calc(var(--ani-delay) + .4s);
+    animation-timing-function: cubic-bezier(.1,.1,.4,1), cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+}
+
+@keyframes hide-show {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+@keyframes show-hide {
+    from { opacity: 1 }
+    to { opacity: 0 }
+}
+
+#before-hand {
+    animation: hat-ani-1, show-hide;
+    animation-duration: .3s, 0s;
+    animation-delay: calc(var(--ani-delay) + .05s), calc(var(--ani-delay) + .35s);
+    animation-timing-function: cubic-bezier(.1,.1,.4,1), step-start;
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
+
+#after-hand {
+    animation: hide-show, hat-ani-2;
+    animation-duration: .35s, .2s;
+    animation-delay: calc(var(--ani-delay) + .0s), calc(var(--ani-delay) + .35s);
+    animation-timing-function: step-end, cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+
+@keyframes badge-ani-1 {
+    from { transform: translateY(0px) }
+    to { transform: translateY(-10px) }
+}
+@keyframes badge-ani-2 {
+    from { transform: translateY(-10px) }
+    to { transform: translateY(2px) }
+}
+@keyframes badge-ani-3 {
+    from { transform: translateY(2px) }
+    to { transform: translateY(0px) }
+}
+
+#badge {
+    animation: badge-ani-1, badge-ani-2, badge-ani-3;
+    animation-duration: .3s, .2s, .2s;
+    animation-delay: calc(var(--ani-delay) + .1s), calc(var(--ani-delay) + .4s), calc(var(--ani-delay) + .6s);
+    animation-timing-function: cubic-bezier(.1,.1,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes eyes-ani-1 {
+    from { transform: translateX(0px) }
+    to { transform: translateX(-16px) }
+}
+@keyframes eyes-ani-2 {
+    from { transform: translateX(-16px) }
+    to { transform: translateX(0px) }
+}
+
+#eyes {
+    /*animation: eyes-ani-1, eyes-ani-2;*/
+    animation-duration: .2s, .2s;
+    animation-delay: calc(var(--ani-delay) + 1s), calc(var(--ani-delay) + 1.5s);
+    animation-timing-function: cubic-bezier(.1,0,.4,1), cubic-bezier(.1,0,.4,1);
+    animation-fill-mode: forwards;
+}
+
+
+
+/*--------------------------------------------------------------
+                                       
+    ####  ###  #   # #   #  ###  #   #       ###  #   # ##### 
+   #     #   # ##  #  # #  #   # ##  #      #   # #   #   #   
+    ###  #   # # # #   #   ##### # # #      #   # #   #   #   
+       # #   # #  ##   #   #   # #  ##      #   # #   #   #   
+   ####   ###  #   #   #   #   # #   #       ###   ###    #   
+                                       
+--------------------------------------------------------------*/
+
+
+@keyframes re-mask-ani-1 {
+    from { transform: translateY(-690px) }
+    to { transform: translateY(90px) }
+}
+@keyframes re-mask-ani-2 {
+    from { transform: translateY(90px) }
+    to { transform: translateY(30px) }
+}
+@keyframes re-mask-ani-3 {
+    from { transform: translateY(30px) }
+    to { transform: translateY(50px) }
+}
+
+.searching #bottom-overlay {
+    animation: re-mask-ani-3, re-mask-ani-2, re-mask-ani-1;
+    animation-duration: .2s, .2s, .3s;
+    animation-delay: 0s, .2s, .4s;
+    animation-timing-function: cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.1,.1,.4,1);
+    transform: translateY(50px);
+    animation-direction: reverse;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes re-body-ani-1 {
+    from { transform: translateY(740px) }
+    to { transform: translateY(-40px) }
+}
+@keyframes re-body-ani-2 {
+    from { transform: translateY(-40px) }
+    to { transform: translateY(20px) }
+}
+@keyframes re-body-ani-3 {
+    from { transform: translateY(20px) }
+    to { transform: translateY(0px) }
+}
+
+.searching #body, .searching #pseudo-body {
+    animation: re-body-ani-3, re-body-ani-2, re-body-ani-1;
+    animation-duration: .2s, .2s, .3s;
+    animation-delay: 0s, .2s, .4s;
+    animation-timing-function: cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.1,.1,.4,1);
+    animation-direction: reverse;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes re-face-ani-1 {
+    from { transform: translateY(40px) }
+    to { transform: translateY(-20px) }
+}
+@keyframes re-face-ani-2 {
+    from { transform: translateY(-20px) }
+    to { transform: translateY(5px) }
+}
+@keyframes re-face-ani-3 {
+    from { transform: translateY(5px) }
+    to { transform: translateY(0px) }
+}
+
+.searching #face {
+    animation: re-face-ani-3, re-face-ani-2, re-face-ani-1;
+    animation-duration: .2s, .2s, .3s;
+    animation-delay: 0s, .2s, .4s;
+    animation-timing-function: cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.1,.1,.4,1);
+    animation-direction: reverse;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes re-ears-ani-1 {
+    from { transform: translateY(0px) }
+    to { transform: translateY(-5px) }
+}
+@keyframes re-ears-ani-2 {
+    from { transform: translateY(-5px) }
+    to { transform: translateY(10px) }
+}
+@keyframes re-ears-ani-3 {
+    from { transform: translateY(10px) }
+    to { transform: translateY(0px) }
+}
+
+.searching #ears {
+    animation: re-ears-ani-1, re-ears-ani-2, re-ears-ani-3;
+    animation-duration: .2s, .2s, .3s;
+    animation-delay: 0s, .2s, .4s;
+    animation-timing-function: cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes re-right-ear-ani-1 {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(-2deg) }
+}
+@keyframes re-right-ear-ani-2 {
+    from { transform: rotate(-2deg) }
+    to { transform: rotate(10deg) }
+}
+@keyframes re-right-ear-ani-3 {
+    from { transform: rotate(10deg) }
+    to { transform: rotate(-25deg) }
+}
+
+.searching #right-ear {
+    transform-origin: 65% 50%;
+    animation: re-right-ear-ani-1, re-right-ear-ani-2, re-right-ear-ani-3;
+    animation-duration: .2s, .2s, .3s;
+    animation-delay: 0s, .2s, .4s;
+    animation-timing-function: cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes re-left-ear-ani-1 {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(2deg) }
+}
+@keyframes re-left-ear-ani-2 {
+    from { transform: rotate(2deg) }
+    to { transform: rotate(-10deg) }
+}
+@keyframes re-left-ear-ani-3 {
+    from { transform: rotate(-10deg) }
+    to { transform: rotate(25deg) }
+}
+
+.searching #left-ear {
+    transform-origin: 35% 50%;
+    animation: re-left-ear-ani-1, re-left-ear-ani-2, re-left-ear-ani-3;
+    animation-duration: .2s, .2s, .3s;
+    animation-delay: 0s, .2s, .4s;
+    animation-timing-function: cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes re-hat-ani-1 {
+    from { transform: translateY(0px) }
+    to { transform: translateY(-80px) }
+}
+@keyframes re-hat-ani-2 {
+    from { transform: translateY(-80px) }
+    to { transform: translateY(-160px) }
+}
+
+.searching #hat {
+    animation: re-hat-ani-1, re-hat-ani-2;
+    animation-duration: .4s, .8s;
+    animation-delay: .3s, .7s;
+    animation-timing-function: cubic-bezier(.6,0,.4,1), cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+}
+
+
+.searching #before-hand {
+    animation: hide-show, hat-ani-2;
+    animation-duration: .35s, .2s;
+    animation-delay: .0s, .35s;
+    animation-timing-function: step-end, cubic-bezier(.6,0,.4,1);
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.searching #after-hand {
+    animation: hat-ani-1, show-hide;
+    animation-duration: .3s, 0s;
+    animation-delay: .05s, .35s;
+    animation-timing-function: cubic-bezier(.6,0,.4,1), step-start;
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
